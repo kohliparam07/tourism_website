@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Luckiest+Guy&family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Gluten:wght@700&family=Lobster&family=Luckiest+Guy&family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Berkshire+Swash&family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Berkshire+Swash&family=Black+Ops+One&family=Ranchers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Gluten:wght@700&family=Lobster&family=Luckiest+Guy&family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <title>Project 2</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Acme', sans-serif;
+            letter-spacing: 1px;
+            /* overflow: auto; */
+            /* overflow-x: hidden; */
+            overflow-x: clip;
+        }
+        body
+        {
+            background-color: rgba(0, 0, 0, 0.253);
+        }
+        
+        .modalBg
+        {
+            width: 100%;
+            /* height: 880px; */
+            height: 100%;
+            /* background-color: rgb(0, 0, 0); */
+            backdrop-filter: blur(20px);
+            position: fixed;
+            /* display: flex; */
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9;
+            top: 0%;
+            transition: all 0.4s;
+        }
+        .modalBg.open
+        {
+           opacity: 1;
+           visibility: visible;
+        }
+        .modal
+        {
+            margin: 50px auto;
+            line-height: 6mm;
+            background-color: white;
+            width: 400px;
+            height: 425px;           
+        }
+        .modal input
+        {
+            width: 100%;
+            background-color: #e2e2e2;
+            height: 35px;
+            border: none;
+        }
+        .submit
+        {
+            color: #72dfa0;
+        }
+        .modal img
+        {
+            width: 145px;
+            position: relative;
+            top: 0%;
+            left: 30%;
+        }
+        .sub
+        {
+            background-color: #72dfa0;
+            position: relative;
+            margin: 101px 0px;
+            width: 100%;
+            height: 10mm;
+            border: none;
+        }
+        .rememberMe
+        {
+            margin: -246px 47px;
+            padding: 0px 0px;
+        }
+        #check
+        {
+            float: left;
+            margin: 219px -174px;
+            font-size: 10px;
+        }
+        #cancel
+        {
+            position: relative;
+            display: inline-block;
+            bottom: 529px;
+            left: 375px;
+            margin: 2px 2px;
+            width: 23px;
+            font-weight: bolder;
+            font-size: 10mm;
+            transform: rotate(45deg);
+        }
+        #cancel:hover
+        {
+            cursor: pointer;
+            color: rgb(25, 116, 70);
+        }
+
+        .modalSpBg
+        {
+            width: 100%;
+            /* height: 880px; */
+            height: 100%;
+            /* background-color: rgba(0, 0, 0, 0.7); */
+            backdrop-filter: blur(20px);
+            position: fixed;
+            /* display: flex; */
+            overflow-y: scroll;
+            visibility: hidden;
+            transition: all 0.4s;
+            opacity: 0;
+            z-index: 9;
+            top: 0%;
+        }
+        .modalSpBg.open0
+        {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modalSp
+        {
+            margin: 50px auto;
+            padding: 10px 0px;
+            line-height: 6mm;
+            background-color: white;
+            width: 567px;
+            height: 730px;  
+            position: relative;
+            /* display: flex;
+            flex-wrap: wrap; */
+            top: 0%;
+            left: 0%;
+            font-size: 6mm;
+            /* overflow-y: scroll; */
+        }
+        .modalSp input
+        {
+            width: 100%;
+            background-color: #e2e2e2;
+            height: 35px;
+            border: none;
+            /* text-decoration: none; */
+        }
+        #rem
+        {
+            margin: 0px -246px;
+            padding: 2px 2px;
+        }
+        .clearfix
+        {
+            width: 100%;
+            margin: 32px 0px;
+            /* display: inline-block; */
+        }
+        #cancelbtn
+        {
+            width: 100%;
+            background-color: rgb(255, 147, 85);
+            height: 50px;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+        }
+        .signupbtn
+        {
+            width: 100%;
+            background-color: #72dfa0;
+            height: 50px;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0px 0px;
+            padding: 0px 0px;
+            border: none;
+        }
+        #cancelbtn:hover
+        {
+            background-color: rgb(189, 100, 49);
+        }
+        .signupbtn:hover
+        {
+            background-color: #369e61;
+        }
+
+        #l1, #l2, #l3
+        {
+            width: 45px;
+            height: 8px;
+            background-color: black;
+            margin: 8px 0px;
+            transition: 0.4s;
+        }
+        #hamburger
+        {
+            /* float: right; */
+            cursor: pointer;
+            display: inline-block;
+            z-index: 1;
+        }
+        /* #hamburger:hover
+        {
+            cursor: pointer;
+        } */
+        .change #l1
+        {
+            transform: rotate(-45deg) translate(-15px, 8px);
+        }
+        .change #l3
+        {
+            transform: rotate(45deg) translate(-14px, -8px);
+        }
+        .change #l2
+        {
+            opacity: 0;
+        }
+
+        .navContent li a
+        {
+            text-decoration: none;
+            color: snow;
+            
+        }
+        .navContent li a:hover
+        {
+            color: rgb(124, 124, 124);
+        }
+        #navContent
+        {
+            /* position: absolute;
+            top: auto;
+            left: auto; */
+            display: none;
+            /* transition: 22.2s all ease; */
+            /* display: flex; */
+            /* flex-direction: column; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* width: 100%; */
+            /* margin: 57px 63px; */
+            /* text-align: center; */
+            list-style: none;
+            /* visibility: hidden; */
+            font-size: 45px;
+            line-height: 19mm;
+            
+        }
+        .menu-bg, #menu-bg
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .menu-bg
+        {
+            /* background: rgba(0, 0, 0, 0.7); */
+            z-index: -1;
+	        width: 0;
+	        height: 0;
+	        margin: 48px 0 0px 0px;
+	        background: rgba(0, 0, 0, 0.8);
+	        border-radius: 50%;
+	        transition: 0.3s ease
+        }
+        #navBar
+        {
+	        z-index: 4;	
+            width: 100%;
+            position: absolute;
+            display: inline-block;
+            margin: 0px 0px;
+        }
+        .change-bg{
+	        width: 100%;
+	        height: 35rem;
+	        transform: translate(-60%,-15%);
+        }
+        .change
+        {
+            display: block;
+        }
+        .change #navContent
+        {
+            visibility: visible; 
+            display: flex;
+            position: absolute;
+            /* top: 15%; */
+            /* left: -38%; */
+            /* transition: 10.2s all ease; */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 27%;
+            z-index: 10;
+            font-size: 4vw;
+        }
+
+        .btn
+        {
+            /* border: 2px solid black; */
+            /* background-color: rgb(179, 243, 245); */
+            background-color: transparent;
+            /* box-shadow: 2px 2px 2px black; */
+            margin: 0px 0px 0px 57px;
+            display: inline-flex;
+            position: relative;
+            /* top: 0%; */
+            float: right;
+            width: 30vw;
+            height: 80px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0px 0px;
+            border-radius: 20px;
+            /* left: 100%; */
+            z-index: 9;
+            /* box-shadow: 5px 5px 200px rgb(250, 243, 152); */
+        }
+        #b1
+        {
+            border: none;
+            background-color: #fa8a8a;
+            /* padding: 0px 20px; */
+            margin: auto 10px;
+            height: 40px;
+            box-shadow: 2px 2px 2px black;
+            width: 90px;
+            /* border: 1px solid orangered; */
+            font-weight: bold;
+            z-index: 9;
+            border-radius: 15px;
+        }
+        #b2
+        {
+            border: none;
+            background-color: #3aff9b;
+            box-shadow: 2px 2px 2px black;
+            /* padding: 0px 20px; */
+            margin: auto 0px auto 0;
+            height: 40px;
+            width: 90px;
+            /* border: 1px solid rgb(1, 90, 31); */
+            font-weight: bold;
+            z-index: 9;
+            border-radius: 15px;
+        }
+        #b2:active, #b1:active
+        {
+            transform: scale(0.98); /*this adds clicking effect on button*/
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+        }
+        #b1:hover , #b2:hover
+        {
+            cursor: pointer;
+        }
+        #srch
+        {
+            height: 20px;
+            margin: auto 2px;
+            background-color: gainsboro;
+            border: 1px solid black;
+            /* border: none; */
+            z-index: 9;
+            box-shadow: 2px 2px 2px black;
+            border-radius: 15px;
+        }
+        .upper
+        {
+            overflow: hidden;
+            position: relative;
+            /* border: 2px solid black; */
+            /* margin: 0px 0px; */
+            margin: 0px 0px 0px 0px;
+            width: 100vw;
+            
+        }
+        .upper figure
+        {
+            width: 500%;
+            position: relative;
+            animation: 20s slider infinite;
+            z-index: -2;
+
+        }
+        .upper img
+        {
+            width: 20%;
+            max-width: 100vw;
+            height: auto;
+            float: left;
+            z-index: -2;
+            /* position: relative;
+            top: 20%;
+            width: 100%;
+            max-width: 100vw;
+            height: auto;
+            z-index: -2;
+            margin: 0px 0px 0px 0px; */
+        }
+        @keyframes slider 
+        {
+            0%
+            {
+                left: 0;
+            }   
+            20%
+            {
+                left: 0;
+            }
+            25%
+            {
+                left: -100%;
+            }
+            45%
+            {
+                left: -100%;
+            }
+            50%
+            {
+                left: -200%;
+            }
+            70%
+            {
+                left: -200%;
+            }
+            75%
+            {
+                left: -300%;
+            }
+            95%
+            {
+                left: -300%;
+            }
+            100%
+            {
+                left: -400%;
+            }
+        }
+        .services
+        {
+            display: flex;
+            border: 2px solid black;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin-top: 4%;
+            /* width: 100vw; */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* position: relative; */
+            /* z-index: -3; */
+        }
+        .services h2
+        {
+            text-align: center;
+        }
+        .services img
+        {
+            /* position: relative; */
+            margin: 100px 2px 100px 2px;
+            width: 152px;
+            height: 154px;
+            border: 4px double black;
+            border-radius: 100%;
+            box-shadow: 2px 2px 45px white;
+            transition: all 1s ease;
+            /* z-index: -2; */
+        }
+        .services img:hover
+        {
+            transform: rotate(360deg);
+            /* transform: scale(2); */
+            cursor: pointer;
+        }
+        .heading
+        {
+            display: flex;
+            border: 6px double black;
+            /* display: inline-block; */
+            position: relative;
+            /* width: 20%;
+            max-width: 20vw;
+            height: auto;
+            font-size: 1.5vw; */
+            align-items: center;
+            justify-content: center;
+            background-color: burlywood;
+            z-index: -10;
+            /* animation: service 2s ease 0s infinite forwards; */
+            /* animation: tex 2s ease 0s infinite forwards; */
+            
+        }
+        .heading:hover
+        {
+            cursor: pointer;
+            transform: scale(1.3);
+        }
+        .heading h2
+        {
+            font-family: 'Berkshire Swash', cursive;
+            /* font-family: 'Black Ops One', cursive; */
+            font-family: 'Aladin', cursive;
+        }
+        .text
+        {
+            /* border: 2px solid black; */
+            padding-top: 3%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        @keyframes service
+        {
+            from
+            {
+                width: 20vw;
+            }
+            to
+            {
+                width: 50vw;
+            }
+        }
+        @keyframes tex
+        {
+            from
+            {
+                width: 10vw;
+                height: 10vh;
+                font-size: 1.5vw;
+            }
+            to
+            {
+                width: 190vw;
+                height: 90vh;
+                font-size: 2vw;
+            }
+        }
+        /* .logoBag
+        {
+            border: 2px solid red;
+        } */
+        .logo
+        {
+            /* border: 2px solid black; */
+            display: inline-flex;
+            /* flex-direction: column; */
+            text-shadow: 3px 3px 15px #40d2e2;
+            position: relative;
+            align-items: center;
+            /* box-shadow: 5px 5px 200px rgb(250, 243, 152); */
+            top: 0%;
+            left: 23%;
+            margin: 0px 0px 0px 0px;
+            background-color: transparent;
+        }
+        .logo h1
+        {
+            /* font-family: 'Berkshire Swash', cursive;
+            font-family: 'Black Ops One', cursive;
+            font-family: 'Aladin', cursive; */
+            font-family: 'Lobster', cursive;
+            letter-spacing: 2px;
+            font-size: 35px;
+            z-index: -13;
+        }
+        .logo img
+        {
+            width: 285px;
+            
+            max-width: 10vw;
+            height: auto;
+            z-index: -11;
+        }
+        .img0 h3, .img1 h3, .img2 h3, .img3 h3, .img4 h3, .img5 h3
+        {
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            border: 2px solid black;
+            text-align: center;
+            position: relative;
+            /* text-shadow: 1px 1px 6px white; */
+            bottom: 20%;
+        }
+        .foot
+        {
+            margin: 2px 2px 2px 2px;
+            border: 2px solid black;
+            padding: 4px;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            /* flex-direction: column; */
+            /* grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); */
+        }
+        .feed
+        {
+            border: 2px solid black;
+            margin: 15px 7.5px 15px 7.5px;
+            display: inline;
+            width: 360px;
+            background-color: rgba(42, 161, 165, 0.507);
+            font-size: 20px;
+            transition: all 0.5s ease;
+        }
+        .feed:hover
+        {
+            transform: scale(1.1); 
+            cursor: pointer;
+             
+            /* text-align: center; */
+        }
+        .end
+        {
+            background-color: black;
+            width: 100%;
+            height: 100px;
+        }
+        .share
+        {
+            position: fixed;
+            /* border: 2px solid sienna; */
+            width: 48px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease; 
+            z-index: 2;
+        }
+        .share.show
+        {
+            opacity: 1;
+            visibility: visible;
+            
+        }
+        .shbtn a img
+        {
+            width: 48px;
+            height: 48px;
+            margin: -2px;
+            padding: 0;
+        }
+        .shbtn a img:hover
+        {
+            transform: scale(1.2);
+            transition: 0.2s all ease;
+            /* height: 55px; */
+        }
+        #shareButton
+        {
+            background-color: grey;
+            position: fixed;
+            padding: 3px;
+            top: 83%;
+            border: 2px solid black;
+            cursor: pointer;
+            z-index: 2;
+            opacity: 0.4;
+        }
+        #shareButton:hover
+        {
+            opacity: 1;
+        }
+        @media (max-width:800px)
+        {
+            .logo
+            {
+                /* border: 2px solid black; */
+                display: inline-flex;
+                /* flex-direction: column; */
+                text-shadow: 2px 2px 2px goldenrod;
+                position: relative;
+                flex-direction: column;
+                align-items: center;
+                /* box-shadow: 5px 5px 200px rgb(250, 243, 152); */
+                top: 0%;
+                left: 23%;
+                margin: 0px 0px 0px 0px;
+                background-color: transparent;
+            }
+            .logo h1
+            {
+                font-size: 25px;
+            }
+            #b1,#b2
+            {
+                width: 60px;
+                height: 30px;
+                border-radius: 10px;
+                /* font-size: 7px; */
+            }
+        }
+        @media (max-width:415px)
+        {
+            .modalSp
+            {
+                width: 300px;
+                height: 620px;
+                font-size: 12px;
+                line-height: 4mm;
+            }
+        }
+
+        
+        @media (max-width:415px)
+        {
+            .modal
+            {
+                width: 300px;
+                height: 400px;
+                font-size: 12px;
+                line-height: 4mm;
+            }
+            .btn
+            {
+                bottom: 0;
+                display: flex;
+                left: 0;    
+                right: 0;
+                top: auto;
+                width: 100%;
+                position: fixed;
+                margin: 0;
+                background-color: rgb(61, 61, 61);
+                border-radius: 0px;
+            }
+            .logo
+            {
+                /* border: 2px solid black; */
+                display: inline-flex;
+                flex-direction: row;
+                text-shadow: 2px 2px 2px goldenrod;
+                position: relative;
+                align-items: center;
+                /* box-shadow: 5px 5px 200px rgb(250, 243, 152); */
+                top: 0%;
+                left: 10%;
+                margin: 0px 0px 0px 0px;
+                /* margin: auto; */
+                background-color: transparent;
+            }
+            .logo h1
+            {
+                font-size: 18px;
+            }
+            .logo img
+            {
+                width: 63px;
+                max-width: 100%;
+            }
+            #cancel
+            {
+                bottom: 503px;
+                left: 279px;
+            }
+            .change-bg
+            {
+                height: 15rem;
+                transform: translate(-60%,-23%);
+            }
+            .feed
+            {
+                width: 200px;
+                font-size: 12px;
+            }
+            .feed:hover
+            {
+                transform: scale(1.2);
+            }
+            /* #b1
+            {
+                height: 15px;
+                width: 55px;
+            }
+            #b2
+            {
+                height: 15px;
+                width: 55px;
+            }
+            #srch
+            {
+                height: 10px;
+                width: 60px;
+            } */
+            #l1, #l2, #l3
+            {
+                width: 25px;
+                height: 5px;
+                background-color: black;
+                margin: 3px 0px;
+                transition: 0.4s;
+            }
+            .change #l1
+            {
+                transform: rotate(-45deg) translate(-6px, 7px);
+            }
+            .change #l3
+            {
+                transform: rotate(45deg) translate(-4px, -6px);
+            }
+            #navContent
+            {
+                font-size: 15px;
+                line-height: 9mm;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+
+    <div id="navBar">
+        <div id="hamburger" onclick="menu()">
+            <div id="l1"></div>
+            <div id="l2"></div>
+            <div id="l3"></div>
+            
+            <ul class="navContent" id="navContent">
+                <li><a href="https://google.com" target="_blank">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="project2_a.html" target="_blank">Packages</a></li>
+                <li><a href="project2_b.html" target="_blank">Our Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                  </svg> -->
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="logoBag"> -->
+        <div class="logo">
+            <img src="logo.png" alt="logo">
+            <h1>KOHLI TOURS & TRAVELS</h1>
+        </div>
+    <!-- </div> -->
+    <div class="btn">
+        <input type="search" name="search" id="srch" placeholder="Search this website">
+        <input type="button" value="LOG IN" id="b1">
+        <input type="button" value="SIGN UP" id="b2">
+    </div>
+
+
+    <div class="menu-bg" id="menu-bg"></div>
+
+    <div class="share" id="share">
+        <div class="shbtn" id="shfb">
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLhB-bMQ-ctpry3VEQDy7DpvRtMO2vVWIeZvHzKOFLymxg-tah7O2pPlk3_yRtygqXxHQ&usqp=CAU" alt="">
+            </a>
+        </div>
+        <div class="shbtn" id="shtw">
+            <a href="https://twitter.com" target="_blank">
+                <img src="https://seeklogo.com/images/T/twitter-icon-square-logo-108D17D373-seeklogo.com.png" alt="">
+            </a>
+        </div>
+        <div class="shbtn" id="shin">
+            <a href="https://instagram.com" target="_blank">
+                <img src="https://bitzinfotech.com/wp-content/uploads/2020/05/insta-class.png" alt="">
+            </a>
+        </div>
+        <div class="shbtn" id="shwh">
+            <a href="https://web.whatsapp.com" target="_blank">
+                <img src="data:image/png;base64,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" alt="">
+            </a>
+        </div>
+    </div>
+    <div id="shareButton">
+        <h3><b>SHARE</b></h3>
+    </div>
+
+    <div class="upper">
+        <figure>
+            <img src="https://wallpaperaccess.com/full/303316.jpg" alt="">
+            <img src="https://www.abercrombiekent.co.uk/-/media/abercrombieandkent/images/accommodation/indian-subcontinent/india/_0168_the-oberoi-udaivilas-1.jpg?la=en&hash=EFB99AE33ABB182F08D6056B22AD52CD39B5EDBB" alt="">
+            <img src="https://wallpaperaccess.com/full/1192101.jpg" alt="">
+            <img src="https://wallpaperaccess.com/full/1802218.jpg" alt="">
+            <img src="https://wallpaperaccess.com/full/2051689.jpg" alt="">
+        </figure>
+    </div>
+    <div class="text">
+        <div class="heading">
+            <h2>OUR SERVICES</h2>
+        </div>
+    </div>
+    <div class="services">
+            <div class="img0">
+                <img src="tiger.png" alt="heritage" class="ser" id="item0">
+                <h3>WILDLIFE</h3>
+            </div>
+            <div class="img1">
+                <img src="taj.png" alt="heritage" class="ser" id="item1">
+                <h3>HERITAGE</h3>
+            </div>
+            <div class="img2">
+                <img src="hand.png" alt="pilgrimage" class="ser" id="item2">
+                <h3>PILGRIMAGE</h3>
+            </div>
+            <div class="img3">
+                <img src="hill.png" alt="hill station" class="ser" id="item3">
+                <h3>HILLS</h3>
+            </div>
+            <div class="img4">
+                <img src="adv.png" alt="adventure" class="ser" id="item4">
+                <h3>ADVENTURE</h3>
+            </div>
+            <div class="img5">
+                <img src="beach.png" alt="beach" class="ser" id="item5">
+                <h3>BEACH</h3>
+            </div>
+    </div>
+    <footer>
+        <h2>Why Choose Us?</h2>
+        <div class="foot">
+            <div class="feed" id="exp">
+                <h4>Experience</h4>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste eaque, totam reprehenderit dolor sunt quaerat et? Architecto ipsam facere praesentium autem ullam illo doloremque fugiat sunt perspiciatis dicta aperiam repellat mollitia, molestiae culpa iste.</p>
+            </div>
+            <div class="feed" id="cust">
+                <h4>Positive Customer Feedback</h4>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste eaque, totam reprehenderit dolor sunt quaerat et? Architecto ipsam facere praesentium autem ullam illo doloremque fugiat sunt perspiciatis dicta aperiam repellat mollitia, molestiae culpa iste.</p>
+            </div>
+            <div class="feed" id="recg">
+                <h4>Recognition</h4>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste eaque, totam reprehenderit dolor sunt quaerat et? Architecto ipsam facere praesentium autem ullam illo doloremque fugiat sunt perspiciatis dicta aperiam repellat mollitia, molestiae culpa iste.</p>
+            </div>
+        </div>
+    </footer>
+    <div class="end"></div>
+    
+    <div class="modalSpBg" id="modalspbg">
+        <div class="modalSp">
+            <form action="backend2.php">
+            <h1 id="sup">Sign Up</h1>
+            <br>
+
+            <p>Please fill in this form to create an account.</p>
+            <br>
+            <hr>
+            <br>
+            <label for="fname"></label>
+            <b>First Name: </b><br><input type="text" placeholder="Enter First Name" name="fname" id="">
+            <br>
+            <br>
+            <label for="lname"></label>
+            <b>Last Name: </b><br><input type="text" placeholder="Enter Last Name" name="lname" id="">
+            <br>
+            <br>
+            <label for="mob"></label>
+            <b>Mobile: </b><br><input type="number" placeholder="Enter Mobile" name="" id="">
+            <br>
+            <br>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email">
+            <br>
+            <br>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw">
+            <br>
+            <br>
+      
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat">
+            <br>
+            <br>
+      
+            <label>
+                <input type="checkbox" checked="checked" name="remember" id="rem"> Remember me
+            </label>
+            
+            <br>
+            <br>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            <div class="clearfix">
+                <button type="submit" class="signupbtn">Sign Up</button>
+                <button type="button" id="cancelbtn" onclick="exitSP">Cancel</button>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <div class="modalBg" id="modalbg">
+        <div class="modal">
+            <img src="login2.png" alt="login" class="log">
+            <form action="backend.php" class="">
+                <label for="email"></label>
+                E-mail: <br><input type="email" name="myemail" id="">
+                <br>
+                <br>
+                <label for="password"></label>
+                Password: <br><input type="password" name="mypass" id="">
+                <div class="submit">
+                    <button type="submit" class="sub">Log In</button>
+                </div>
+                <div id="cancel">
+                    +
+                </div>
+                <div class="rememberMe">
+                    Remember me 
+                </div>
+                <input type="checkbox" name="mybox" id="check">
+            </form>
+        </div>
+    </div>
+
+
+    
+    <!-- <script>
+        document.getElementById('shareButton').addEventListener('click', function showShare() 
+{
+    document.getElementById("share").classList.toggle("show");
+});
+// document.getElementById('shareButton').addEventListener('click', function showShare() 
+// {
+//     document.getElementById("share").classList.remove("show");
+// });
+
+
+document.getElementById('b1').addEventListener('click', function click() 
+{
+    
+document.getElementById("modalbg").classList.add("open");
+});
+
+// function click(){
+//     console.log("click")
+//     document.getElementById("modalbg").classList.add("open");
+// }
+
+document.getElementById('cancel').addEventListener('click', function exit() 
+{
+    document.getElementById("modalbg").classList.remove("open");
+});
+
+
+
+document.getElementById('b2').addEventListener('click', function clickSP() 
+{
+    document.getElementById("modalspbg").classList.add("open0");  
+});
+document.getElementById('cancelbtn').addEventListener('click', function exitSP() 
+{
+    document.getElementById("modalspbg").classList.remove("open0");
+});
+
+
+
+function menu() 
+{
+    document.getElementById('hamburger').classList.toggle("change"); 
+    document.getElementById("navContent").classList.toggle("change");
+    document.getElementById("menu-bg").classList.toggle("change-bg");
+}
+  
+
+    </script> -->
+
+   
+
+    <script src="project2.js"></script>
+
+
+    
+
+
+
+    
+</body>
+</html>
