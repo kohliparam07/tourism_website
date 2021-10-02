@@ -1,0 +1,285 @@
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .head h1
+      {
+          font-size: 36px;
+          font-family: 'Lobster', cursive;
+          letter-spacing: 1.5px;
+          text-shadow: 3px 3px 9px turquoise;
+      }
+      .head img
+      {
+          width: 138px;
+          max-width: 100%;
+      }
+      .head
+      {
+        /* border: 2px solid palevioletred; */
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        background-color: #111827;
+        color: white;
+        /* text-align: center; */
+        /* height: 40px; */
+      }
+      .blogs
+      {
+        border: 2px double white;
+      }
+      .blog2
+      {
+        width: 100%;
+        /* height: 200px; */
+        background-color: white;
+        display: none;
+      }
+      .blog3
+      {
+        width: 100%;
+        /* height: 200px; */
+        background-color: rgb(255, 255, 255);
+        display: none;
+      }
+      .mainpara3
+      {
+        width: 66.66%;
+        /* height: 300px; */
+        /* color: white; */
+        background-color: white;
+        /* border: 2px solid black; */
+        padding: 2px 2px 2px 2px;
+      }
+      .paraContent3
+      {
+        display: flex;
+      }
+      #p13,#p14,#p15,#p16,#p17,#p18
+      {
+        padding: 25px 12px 8px 12px;
+        color: white;
+        font-weight: 200;
+        background-color: #111827;
+        text-shadow: 2px 1px 15px #00fff3;
+      }
+      .blog3.show2
+      {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        /* position: absolute; */
+        z-index: 1;
+        margin: auto;
+      }
+      #lm3:hover
+      {
+        cursor: pointer;
+      }
+      .blog2.show1
+      {
+        display: block;
+        /* position: absolute; */
+        z-index: 1;
+      }
+      #lm2:hover
+      {
+        cursor: pointer;
+      }
+      .blog1
+      {
+        width: 100%;
+        /* height: 500px; */
+        /* opacity: 0.6; */
+        /* backdrop-filter: blur(5px); */
+        background-color: white;
+        /* border-radius: 50px; */
+        /* background: url("shimla.jpg"); */
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: 100% 100%;
+        /* position: absolute; */
+        /* visibility: hidden;
+        opacity: 0; */
+        display: none;
+      }
+      .b1Cont
+      {
+        width: 100%;
+        /* height: 500px; */
+        /* backdrop-filter: blur(3px); */
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+      }
+      .b1Head, .b2Head, .b3Head
+      {
+        font-family: 'Ranchers', cursive;
+        font-family: 'Ephesis', cursive;
+        font-size: 30px;
+        font-weight: bolder;
+        color: #111827;
+        text-shadow: 2px 2px 8px turquoise;
+      }
+      .b2Head
+      {
+        width: 100%;
+        text-align: center;
+        background-color: white;
+      }
+      .b1Head
+      {
+        /* border-radius: 50px; */
+        /* border: 2px solid black; */
+        /* height: 30px; */
+        width: 100%;
+        text-align: center;
+        background-color: white;
+        /* color: black; */
+      }
+      .b3Head
+      {
+        /* border-radius: 50px; */
+        /* border: 2px solid black; */
+        /* height: 30px; */
+        width: 100%;
+        text-align: center;
+        background-color: white;
+        /* color: black; */
+      }
+      .blog1 img
+      {
+        width: 30%;
+        /* height: 10%; */
+        display: inline-block;
+        /* margin: 23px 2px 23px 25px; */
+        opacity: 1;
+      }
+      .blog3 img
+      {
+        width: 30%;
+        display: inline-block;
+        opacity: 1;
+      }
+      .mainpara
+      {
+        border-radius: 50px;
+        width: 66.66%;
+        /* height: 300px; */
+        /* color: white; */
+        background-color: white;
+        /* border: 2px solid black; */
+        padding: 2px 2px 2px 2px;
+      }
+      /* .pleft
+      {
+        padding: 20px 20px 20px 20px;
+      }
+      .pright
+      {
+        padding: 20px 20px 20px 20px;
+      } */
+      .paraContent
+      {
+        display: flex;
+      }
+      #p1,#p2,#p3
+      {
+        padding: 25px 12px 8px 12px;
+        color: white;
+        font-weight: 200;
+        background-color: #111827;
+        text-shadow: 2px 1px 15px #00fff3;
+      }
+      #p4,#p5,#p6
+      {
+        padding: 25px 12px 8px 12px;
+        color: white;
+        font-weight: 200;
+        background-color: #111827;
+        text-shadow: 2px 1px 15px #00fff3;
+      }
+      #lm1:hover
+      {
+        cursor: pointer;
+      }
+      .blog1.show
+      {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        /* position: absolute; */
+        z-index: 1;
+        margin: auto;
+      }
+      .blog2 img
+      {
+        width: 40%;
+        margin: auto;
+      }
+      .mainpara2
+      {
+        background-color: white;
+        /* border: 2px solid black; */
+        padding: 20px 20px 20px 20px;
+      }
+      .paraContent2
+      {
+        display: flex;
+        margin: 2px 2px 2px 2px;
+      }
+      #p7,#p8,#p9,#p10,#p11,#p12
+      {
+        padding: 25px 12px 8px 12px;
+        color: white;
+        font-weight: 200;
+        background-color: #111827;
+        text-shadow: 2px 1px 15px #00fff3;
+      }
+      #p9,#p12
+      {
+        padding-bottom: 40px;
+      }
+      @media (max-width: 800px) {
+        .paraContent{
+          display: block;
+          margin: 20px;
+        }
+        .mainpara{
+          display: contents;
+        }
+        .paraContent2{
+          display: block;
+        }
+        .paraContent3{
+          display: block;
+          margin: 20px;
+        }
+        .mainpara3{
+          display: contents;
+        }
+      }
+      @media (max-width: 415px)
+      {
+        .head
+        {
+          flex-direction: column;
+        }
+        .head h1
+        {
+          font-size: 23px;
+        }
+        .head img
+        {
+          width: 55px;
+        }
+        .b1Head, .b2Head, .b3Head
+        {
+          font-size: 18px;
+        }
+      }
+    
